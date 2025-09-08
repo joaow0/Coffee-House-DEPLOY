@@ -36,9 +36,10 @@
     color: var(--white-color);
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 800px) {
     .footer-section .section-content {
         flex-direction: column;
         gap: 20px;
     }
 }
+

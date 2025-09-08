@@ -1,5 +1,4 @@
-{% load static %}
-{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +19,7 @@
             </a>
             <ul class="nav-menu">
                 <button id="menu-close-button" class="fas fa-times"></button>
-                <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li><a class="nav-link" href="#home">Home</a></li>
                 <li><a class="nav-link" href="#about">Sobre</a></li>
                 <li><a class="nav-link" href="#menu">Menu</a></li>
                 <li><a class="nav-link" href="#testimonials">Avaliações</a></li>
@@ -37,17 +36,17 @@
         <section class="hero-section">
             <div class="section-content">
                 <div class="hero-details">
-                    <h2 class="title">Melhor Café da Cidade</h2>
-                    <h3 class="subtitle">Faça seu dia ser incrivel com nosso café especial</h3>
-                    <p class="description">Bem-vindo ao nosso café, onde cada xícara é uma experiência única.</p>
+                    <h2 class="title">Best Coffee in Town</h2>
+                    <h3 class="subtitle">Make your day amazing with our special coffee</h3>
+                    <p class="description">Welcome to our café, where every cup is a unique experience.</p>
 
                     <div class="buttons">
-                        <a href="#" class="button order-now">Peça Agora</a>
-                        <a href="{% url 'contacts' %}" class="button contact-us">Contato-nos</a>
+                        <a href="#" class="button order-now">Order Now</a>
+                        <a href="#" class="button contact-us">Contact Us</a>
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
-                    <img src="{% static 'pagina/imagens/coffee-hero-section.png' %}" alt="Café">
+                    <img src="image/coffee-hero-section.png" alt="Café">
                 </div>
             </div>
         </section>
@@ -56,11 +55,11 @@
         <section class="about-section" id="about">
             <div class="section-content">
                 <div class="about-image-wrapper">
-                    <img src="{% static 'pagina/imagens/about-image.jpg' %}" alt="about" class="about-image">
+                    <img src="image/about-image.jpg" alt="about" class="about-image">
                 </div>
                 <div class="about-details">
-                    <h2 class="section-title">Sobre Nós</h2>
-                    <p class="text">Na Coffee House, oferecemos uma experiência única para os amantes de café. Venha nos visitar!</p>
+                    <h2 class="section-title">About Us</h2>
+                    <p class="text">At Coffee House, we offer a unique experience for coffee lovers. Come visit us!</p>
                     <div class="social-link-list">
                         <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
                         <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
@@ -72,44 +71,77 @@
 
         <!--Menu Section-->
         <section class="menu-section" id="menu">
-            <h2 class="section-title">Nosso Menu</h2>
+            <h2 class="section-title">Menu</h2>
             <div class="section-content">
                 <ul class="menu-list">
-                    {% for product in products %}
                     <li class="menu-item">
-                        <img src="{{ product.imagem.url }}" alt="{{ product.nome }}" class="menu-image">
-                        <h3 class="name">{{ product.nome }}</h3>
-                        <p class="text">{{ product.descricao }}</p>
+                        <img src="image/hot-beverages.png" alt="" class="menu-image">
+                        <h3 class="name">Hot Beverages</h3>
+                        <p class="text">wide range of steaming hot coffee to make you fresh and light.</p>
                     </li>
-                    {% empty %}
                     <li class="menu-item">
-                        <p class="text">Nenhum produto disponível.</p>
+                        <img src="image/cold-beverages.png" alt="" class="menu-image">
+                        <h3 class="name">Cold Beverages</h3>
+                        <p class="text">Creamy and frathy cold coffee to make you cool.</p>
                     </li>
-                    {% endfor %}
+                    <li class="menu-item">
+                        <img src="image/refreshment.png" alt="" class="menu-image">
+                        <h3 class="name">Refreshment</h3>
+                        <p class="text">Fruit and icy refreshing dring to make feel refresh.</p>
+                    </li>
+                    <li class="menu-item">
+                        <img src="image/special-combo.png" alt="" class="menu-image">
+                        <h3 class="name">Special Combos</h3>
+                        <p class="text">Your favorite eating and drinking combations.</p>
+                    </li>
+                    <li class="menu-item">
+                        <img src="image/desserts.png" alt="" class="menu-image">
+                        <h3 class="name">Dessert</h3>
+                        <p class="text">Satiate yours palate and take you on a culinary treat.</p>
+                    </li>
+                    <li class="menu-item">
+                        <img src="image/burger-frenchfries.png" alt="" class="menu-image">
+                        <h3 class="name">Burger & French Fries</h3>
+                        <p class="text">Quick bites to satisfy your small size hunger.</p>
+                    </li>
                 </ul>
             </div>
         </section>
+        
 
         <!--Testimonials Section-->
         <section class="testimonials-section" id="testimonials">
-            <h2 class="section-title">Avaliações</h2>
+            <h2 class="section-title">Reviews</h2>
                 <div class="section-content">
                     <div class="slider-container swiper">
                         <div class="slider-wrapper">
                             <ul class="testimonials-list swiper-wrapper">
-                                {% for testimonial in testimonials %}
                                 <li class="testimonial swiper-slide">
-                                    <img src="{{ testimonial.imagem.url }}" alt="" class="user-image">
-                                    <h3 class="name">{{ testimonial.nome }}</h3>
-                                    <p class="text">{{ testimonial.mensagem }}</p>
+                                    <img src="image/user-1.jpg" alt="User" class="user-image">
+                                    <h3 class="name">Sarah Johnson</h3>
+                                    <p class="text">"Loved the french roast. Perfectly balanced and rich. Will order again!"</p>
                                 </li>
-                                {% empty %}
-                                <li>
-                                    <p class="text">Nenhuma avaliação disponível.</p>
+                                <li class="testimonial swiper-slide">
+                                    <img src="image/user-2.jpg" alt="User" class="user-image">
+                                    <h3 class="name">James Wilsson</h3>
+                                    <p class="text">"Great espresso smooth and bold flayor. fast shipping too!"</p>
                                 </li>
-                                {% endfor %}
+                                <li class="testimonial swiper-slide">
+                                    <img src="image/user-3.jpg" alt="User" class="user-image">
+                                    <h3 class="name">Michael Brown</h3>
+                                    <p class="text">"Fantastic mocha flavor. Fresh and aromatic. Quick shipping"</p>
+                                </li>
+                                <li class="testimonial swiper-slide">
+                                    <img src="image/user-4.jpg" alt="User" class="user-image">
+                                    <h3 class="name">James Wilsson</h3>
+                                    <p class="text">"Excellent quality! Fresg beans and quick delivery. Highly recommend."</p>
+                                </li>
+                                <li class="testimonial swiper-slide">
+                                    <img src="image/user-5.jpg" alt="User" class="user-image">
+                                    <h3 class="name">Anthony Thompson</h3>
+                                    <p class="text">"Best decaf ive tried! Smooth and flavorful. Arrived Promptly"</p>
+                                </li>
                             </ul>
-
                             <div class="swiper-pagination"></div>
                             <div class="swiper-slide-button swiper-button-prev"></div>
                             <div class="swiper-slide-button swiper-button-next"></div>
@@ -120,21 +152,34 @@
 
         <!--Gallery Section-->
         <section class="gallery-section" id="gallery">
-            <h2 class="section-title">Galeria</h2>
+            <h2 class="section-title">Gallery</h2>
             <div class="section-content">
                 <ul class="gallery-list">
-                    {% for imagem in gallery %}
                     <li class="gallery-item">
-                        <img class="gallery-image" src="{{ imagem.imagem.url }}" alt="">
+                        <img class="gallery-image" src="image/gallery-1.jpg" alt="">
                     </li>
-                    {% endfor %}
+                    <li class="gallery-item">
+                        <img class="gallery-image" src="image/gallery-2.jpg" alt="">
+                    </li>
+                    <li class="gallery-item">
+                        <img class="gallery-image" src="image/gallery-3.jpg" alt="">
+                    </li>
+                    <li class="gallery-item">
+                        <img class="gallery-image" src="image/gallery-4.jpg" alt="">
+                    </li>
+                    <li class="gallery-item">
+                        <img class="gallery-image" src="image/gallery-5.jpg" alt="">
+                    </li>
+                    <li class="gallery-item">
+                        <img class="gallery-image" src="image/gallery-6.jpg" alt="">
+                    </li>
                 </ul>
             </div>
         </section>
 
         <!--contact section-->
         <section class="contact-section" id="contact">
-            <h2 class="section-title">Contate-nos</h2>
+            <h2 class="section-title">Contact Us</h2>
             <div class="section-content">
                 <ul class="contact-info-list">
                     <li class="contact-info">
@@ -151,11 +196,11 @@
                     </li>
                     <li class="contact-info">
                         <i class="fa-regular fa-clock"></i>
-                        <p>Segunda - Sexta: 7h - 15h</p> 
+                        <p>Monday - Friday: 7 AM - 3 PM</p> 
                     </li>
                     <li class="contact-info">
                         <i class="fa-regular fa-clock"></i>
-                        <p>Sabado - Domingo: Fechado</p> 
+                        <p>Saturday - Sunday: Closed</p> 
                     </li>
                     <li class="contact-info">
                         <i class="fa-solid fa-globe"></i>
@@ -163,11 +208,10 @@
                     </li>
                 </ul>
                 <form action="{% url 'home' %}" method="post" class="contact-form">
-                    {% csrf_token %}
                     <input type="text" name="nome" class="form-input" placeholder="Seu Nome" required>
                     <input type="email" name="email" class="form-input" placeholder="Seu Email" required>
                     <textarea name="mensagem" class="form-input" placeholder="Sua Mensagem" required></textarea>
-                    <button type="submit" class="button submit-button">Enviar Mensagem</button>
+                    <button type="submit" class="button submit-button">Send Message</button>
                 </form>
             </div>
         </section>
@@ -175,7 +219,7 @@
         <!--footer-->
         <footer class="footer-section">
             <div class="section-content">
-                <p class="copyright-text">&copy; 2025 Coffee Home. Todos os direitos reservados.</p>
+                <p class="copyright-text">&copy; 2025 Coffee Home. All rights reserved.</p>
 
                 <div class="social-link-list">
                     <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
@@ -184,9 +228,9 @@
                 </div>
 
                 <p class="policy-text">
-                    <a href="#" class="policy-link">Politica de privacidade</a>
-                    <span class="separator">*</span>
-                    <a href="#" class="policy-link">Termos de Serviço</a>
+                    <a href="#" class="policy-link">Privacy Policy</a>
+                    <span class="separator">•</span>
+                    <a href="#" class="policy-link">Terms of Service</a>
                 </p>
             </div>
         </footer>
@@ -197,4 +241,3 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
-{% endblock %}
